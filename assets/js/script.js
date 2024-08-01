@@ -27,18 +27,20 @@ const quizData = [{
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const checkButton = document.getElementById("check");
+const resultSection = document.getElementById("result-section")
 
-let currentQuestion = 0;
+let currentQuestionIndex = 0;
 let score = 0;
 
 
 
 function showQuestion() {
-    const question = quizData[currentQuestion];
-    questionElement.innerText = question.question;
+    const currentQuestion = quizData[currentQuestionIndex];
+    console.log("currentQuestion ", currentQuestion)
+    questionElement.innerText = currentQuestion.question;
 
     optionsElement.innerHTML = "";
-    question.options.forEach(option => {
+    currentQuestion.options.forEach(option => {
         const button = document.createElement("button");
         button.innerText = option;
         optionsElement.appendChild(button);
@@ -48,15 +50,19 @@ function showQuestion() {
 
 function selectAnswer(e) {
     const selectedButton = e.target;
-    const answer = quizData[currentQuestion].answer;
+    console.log("selectedButton", selectedButton)
+    console.log("currentQuestionIndex", currentQuestionIndex)
+    const answer = quizData[currentQuestionIndex].answer;
+    console.log("answer", answer)
 
     if (selectedButton.innerText === answer) {
         score++;
     }
 
-    currentQuestion++;
+    currentQuestionIndex++;
+    console.log("currentQuestionIndex", currentQuestionIndex)
 
-    if (currentQuestion < quizData.length) {
+    if (currentQuestionIndex < quizData.length) {
         showQuestion();
     } else {
         showResult();
@@ -64,7 +70,7 @@ function selectAnswer(e) {
 }
 
 function showResult() {
-    quiz.innerHTML = `
+    resultSection.innerHTML = `
       <h1>Quiz Completed!</h1>
       <p>Your score: ${score}/${quizData.length}</p>
     `;
