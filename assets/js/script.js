@@ -28,6 +28,7 @@ const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const checkButton = document.getElementById("check");
 const resultSection = document.getElementById("result-section")
+const questionNumberContainer = document.getElementById("question-number")
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -35,17 +36,25 @@ let score = 0;
 
 
 function showQuestion() {
-    const currentQuestion = quizData[currentQuestionIndex];
-    console.log("currentQuestion ", currentQuestion)
-    questionElement.innerText = currentQuestion.question;
+    console.log("quiz data length ", quizData.length)
+    if (currentQuestionIndex + 1 > quizData.length) {
+        console.log("break")
+        showResult()
+        questionElement.style.display = "none"
+    } else {
+        const currentQuestion = quizData[currentQuestionIndex];
+        console.log("currentQuestion ", currentQuestion)
+        questionElement.innerText = currentQuestion.question;
+        questionNumberContainer.innerText = currentQuestionIndex + 1
+        optionsElement.innerHTML = "";
+        currentQuestion.options.forEach(option => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            optionsElement.appendChild(button);
+            button.addEventListener("click", selectAnswer);
+        });
+    }
 
-    optionsElement.innerHTML = "";
-    currentQuestion.options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option;
-        optionsElement.appendChild(button);
-        button.addEventListener("click", selectAnswer);
-    });
 }
 
 function selectAnswer(e) {

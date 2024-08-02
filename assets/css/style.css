@@ -9,6 +9,7 @@ body {
     padding: 230px;
     max-width: 400px;
     border-radius: 5px;
+
 }
 
 h1 {
@@ -35,4 +36,50 @@ button {
     color: #131313;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+@media (max-width: 414px) {
+    #container {
+        width: 100%;
+    }
+
+
+    #question {
+        padding: 10% 0;
+        width: 100%;
+    }
+
+    #options {
+        padding: 0;
+    }
+
+
+
+    #result-section {
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+
+@media (max-width: 320px) {
+    #container {
+        height: 70vh;
+    }
+
+
+    #question {
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    #result-section {
+        padding: 10px 0;
+    }
+
 }
