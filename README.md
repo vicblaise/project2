@@ -4,7 +4,7 @@
 
 
 
- #Features.
+ # Features.
 
  ### Heading
  * This is the part where the user first sees and get the idea of what to expect from the game.
