@@ -39,7 +39,7 @@ button {
 }
 
 
-@media (max-width: 414px) {
+@media (max-width: 693px) {
     #container {
         width: 100%;
     }
@@ -52,6 +52,10 @@ button {
 
     #options {
         padding: 0;
+    }
+
+    #check {
+        margin-top: 20px;
     }
 
 
@@ -76,10 +80,19 @@ button {
     #question {
         width: 75%;
         margin: 10px auto;
+        flex: 10px;
     }
 
     #result-section {
         padding: 10px 0;
+    }
+
+    #options {
+        margin: 10px 10px;
+    }
+
+    #check {
+        margin-top: 20px;
     }
 
 }

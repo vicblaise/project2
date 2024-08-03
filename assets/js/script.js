@@ -22,6 +22,7 @@ const quizData = [{
         answer: "Mexico City"
     }
 
+
 ];
 
 const questionElement = document.getElementById("question");
