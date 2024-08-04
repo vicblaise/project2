@@ -37,14 +37,14 @@ let score = 0;
 
 
 function showQuestion() {
-    console.log("quiz data length ", quizData.length)
+
     if (currentQuestionIndex + 1 > quizData.length) {
-        console.log("break")
+
         showResult()
         questionElement.style.display = "none"
     } else {
         const currentQuestion = quizData[currentQuestionIndex];
-        console.log("currentQuestion ", currentQuestion)
+
         questionElement.innerText = currentQuestion.question;
         questionNumberContainer.innerText = currentQuestionIndex + 1
         optionsElement.innerHTML = "";
@@ -60,17 +60,16 @@ function showQuestion() {
 
 function selectAnswer(e) {
     const selectedButton = e.target;
-    console.log("selectedButton", selectedButton)
-    console.log("currentQuestionIndex", currentQuestionIndex)
+
     const answer = quizData[currentQuestionIndex].answer;
-    console.log("answer", answer)
+
 
     if (selectedButton.innerText === answer) {
         score++;
     }
 
     currentQuestionIndex++;
-    console.log("currentQuestionIndex", currentQuestionIndex)
+
 
     if (currentQuestionIndex < quizData.length) {
         showQuestion();
